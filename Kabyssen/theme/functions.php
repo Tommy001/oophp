@@ -14,3 +14,5 @@ function get_title($title) {
   global $kabyssen;
   return $title . (isset($kabyssen['title_append']) ? $kabyssen['title_append'] : null);
 }
+
+

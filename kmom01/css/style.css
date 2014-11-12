@@ -85,7 +85,7 @@ aside {
   top: 25px;
   left: 130px;
   font-size: 48px;
-  text-decoration:none;
+  color:#000;
 }
  
 .siteslogan {
@@ -94,7 +94,6 @@ aside {
   left: 130px;
   font-style: italic;
   color: #666;
-  text-decoration:none;
 }
 
 /* navigation menus */
@@ -111,10 +110,10 @@ nav.related, nav.login {
 nav.related, nav.login a:visited { text-decoration:none;
            color:#FFF;
 }
-nav.related > a:hover,
-nav.related > a:visited,
-nav.related > a:link,
-nav.related > a:active {
+nav.related a:hover,
+nav.related a:visited,
+nav.related a:link,
+nav.related a:active {
     text-decoration:none;
     color:#FFF;
 }
@@ -141,7 +140,9 @@ nav.navmenu a.selected {
     color:#FFF;
     text-decoration:none;
 }
-nav.navmenu a:link    {text-decoration:none;
+nav.navmenu a:link    {
+    color:#fff;
+    text-decoration:none;
 }
 nav.navmenu a:visited { text-decoration:none;
            color:#FFF;
