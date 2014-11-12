@@ -5,8 +5,8 @@
  */
 // Include the essential config-file which also creates the $kabyssen variable with its defaults.
 include(__DIR__.'/config.php'); 
-include('../kabyssen/src/CSource/CSource.php');
-$source = new CSource();
+include "../kabyssen/src/CSource/CSource.php";
+$source = new CSource(array('secure_dir' => '..', 'base_dir' => '..'));
 
 // Define what to include to make the plugin to work
 $kabyssen['stylesheets'][]        = 'css/source.css';
