@@ -1,0 +1,220 @@
+/**
+ * General elements
+ */
+ /* general */
+html {background: #185F0C;
+      overflow-y: scroll;
+}
+
+body {
+  font-size:90%;
+  margin: 8px auto;
+  width: 934px;
+  padding: 20px;
+  background: #EBF5EA;
+  border: 0px dashed #000000;
+  font-family: Helvetica, serif;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+}
+
+
+h1 {
+  text-transform: uppercase;
+  /* border-bottom: 1px solid #ddd; */
+}
+
+
+
+html {
+
+}
+
+
+
+/* html5 elements
+--------------------------------------------------------
+*/
+header,footer,nav,article,section,aside,figure,figcaption,output{display:block;}
+
+article {
+    width:72%;
+    text-align:justify;
+}
+
+article.source {
+    font-size:110%;
+    width:93%;
+}        
+article.me {
+    width:93%;
+    text-align:justify;
+}
+
+aside {
+   width:22%;
+}
+
+ 
+/**
+ * Layout of the main page elements
+
+ */
+ 
+.right {
+    float:right;
+}
+ 
+#wrapper {
+  margin: 0 auto;
+  width: 980px; 
+  padding: 10px;
+}
+ 
+ 
+/**
+ * Layout for header
+ */
+#header {
+  position: relative;
+  margin-bottom: 40px;
+}
+ 
+.sitetitle {
+  position: absolute;
+  top: 25px;
+  left: 130px;
+  font-size: 48px;
+  color:#000;
+}
+ 
+.siteslogan {
+  position: absolute;
+  top: 80px;
+  left: 130px;
+  font-style: italic;
+  color: #666;
+}
+
+/* navigation menus */
+
+nav.related, nav.login {
+   padding:0.2em 1em 0.3em 1em;
+   color:#fff;
+   background: #185F0C;
+   margin-bottom:10px;
+   width:885px;
+   word-spacing:20px;
+}
+
+nav.related, nav.login a:visited { text-decoration:none;
+           color:#FFF;
+}
+nav.related a:hover,
+nav.related a:visited,
+nav.related a:link,
+nav.related a:active {
+    text-decoration:none;
+    color:#FFF;
+}
+
+
+
+nav.navmenu {
+    display: block;
+    padding: 0.5em 0.5em 0.5em 0.5em;
+    background: #185F0C;
+    border-bottom: 1px solid #e4f087;
+    margin-bottom:10px;
+    margin-top:10px;
+    width:895px;
+    font-size:140%;
+    word-spacing:20px;
+    color:#fff;
+   
+}
+nav.navmenu a.selected {
+    background: none repeat scroll 0 0 #858585;
+    padding:5px;
+    border: 2px solid #858585; 
+    color:#FFF;
+    text-decoration:none;
+}
+nav.navmenu a:link    {
+    color:#fff;
+    text-decoration:none;
+}
+nav.navmenu a:visited { text-decoration:none;
+           color:#FFF;
+}
+nav.navmenu a:hover   {    
+    background: none repeat scroll 0 0 #858585;
+    padding:5px;
+    border: 2px solid #656565; 
+    color:#FFF;
+}
+nav.navmenu a:active  {  text-decoration:none; 
+       color:#FFF;
+}
+
+ 
+/**
+ * Layout for main
+ */
+#main {
+  min-height: 20em;
+}
+
+figure.profilbild {
+    border: 1px solid #e6e6e6;
+    margin: 1em;
+    padding: 4px;
+    text-align: center;
+}
+
+figure.bylinebild {
+    border: 1px solid #e6e6e6;
+    margin: 1em;
+    padding: 4px;
+    text-align: center;
+}
+
+figure.right {
+    margin-right: 0;
+}
+
+
+figure.top {
+    margin-top: 0;
+}
+ 
+/**
+ * Layout for footer
+ */
+#footer {
+  margin-top: 15px;
+  border-top: 1px solid #ccc;
+  padding-top: 15px;
+  width:93%;
+}
+ 
+.sitefooter {
+  color: #666;
+
+}
+
+footer.byline {
+	overflow:auto;
+        clear: both;
+	border-top: 1px dashed #999999;
+
+	padding: 1em;
+	color: #555555;
+	font-size: 90%;
+	font-style:italic;
+}
+
+footer.byline img {
+    padding:2px;outline:#999999 groove 1px;
+}

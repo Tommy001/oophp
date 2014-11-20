@@ -19,12 +19,12 @@ set_exception_handler('myExceptionHandler');
  *
  */
 function myAutoloader($class) {
-  $path = KABYSSEN_INSTALL_PATH . "/src/{$class}/{$class}.php";
+  $path = KABYSSEN_INSTALL_PATH . "/kabyssen/src/{$class}/{$class}.php";
   if(is_file($path)) {
     include($path);
   }
   else {
-    throw new Exception("Classfile '{$class}' does not exists.");
+    throw new Exception("Classfile '{$class}' does not exist.");
   }
 }
 spl_autoload_register('myAutoloader');
