@@ -15,20 +15,7 @@ $kabyssen['stylesheets'][]        = 'css/style.css';
 $kabyssen['title'] = "Redovisning";
 
 $kabyssen['main'] = <<<EOD
-<aside class="right">
-    <nav class="vmenu">
-        <h4>Kursmomentmeny</h4>
-        <ul>
-  	       <li><a href="#kmom01">kmom01</a>
-  	       <li><a href="#kmom02">kmom02</a>
-  	       <li><a href="#kmom03">kmom03</a>
-  	       <li><a href="#kmom04">kmom04</a>
-  	       <li><a href="#kmom05">kmom05</a>   
-  	       <li><a href="#kmom06">kmom06</a> 
-  	       <li><a href="#kmom07_10">kmom07-10</a>                  
-  	   </ul>  
-  </nav>
-</aside>
+{$kmom_meny}
 <article class="readable">
     <h1>Redovisning</h1>
     <h2><a name="kmom01">Kmom01: Kom igång med programmering i PHP</a></h2>
@@ -61,7 +48,7 @@ $kabyssen['main'] = <<<EOD
     <p>
         För själva spelplanens utseende använde jag CSS och skapade ett i mitt tycke tydligt och enkelt bildspråk med flytande divvar och bildsymboler i stället för en massa text. Självklart finns det ändå en enkel textinstruktion.
     <p>
-        Jag ska tillägga att jag fortsätter att anväda git och har nu pushat repot (hela oophp-mappen) till github.    
+        Jag ska tillägga att jag fortsätter att använda git och har nu pushat repot (hela oophp-mappen) till github. Så nu har jag en up-to-date branch, med meddelandet "Nothing to commit, working directory clean".
     <p>
         Efter den här tuffa inledningen på oophp-kursen med först webbmallen och sedan oop-guide plus tärningsspel, känner jag mig lätt vimmelkantig. Så nu ska det faktiskt bli lite skönt att vila hjärnan någon dag. Sedan är dags för nästa kursmoment.
     </p>

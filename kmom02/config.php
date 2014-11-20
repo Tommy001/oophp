@@ -44,7 +44,7 @@ include(KABYSSEN_INSTALL_PATH . '/kabyssen/src/navigation.php');
  * Include common functions.
  *
  */
-include(KABYSSEN_INSTALL_PATH . '/kabyssen/src/session_functions.php');
+include(KABYSSEN_INSTALL_PATH . '/kabyssen/src/functions.php');
  
  
 /**
@@ -74,6 +74,20 @@ $menu = array(
 );
 
 $navigation = array('menu' => call_user_func('GenerateMenu', $menu, $class));
+$kmom_meny = '<aside class="right">
+    <nav class="vmenu">
+        <h4>Kursmomentmeny</h4>
+        <ul>
+  	       <li><a href="#kmom01">kmom01</a>
+  	       <li><a href="#kmom02">kmom02</a>
+  	       <li><a href="#kmom03">kmom03</a>
+  	       <li><a href="#kmom04">kmom04</a>
+  	       <li><a href="#kmom05">kmom05</a>   
+  	       <li><a href="#kmom06">kmom06</a> 
+  	       <li><a href="#kmom07_10">kmom07-10</a>                  
+  	   </ul>  
+  </nav>
+</aside>';
 
 $kabyssen['header'] = <<<EOD
 <nav class="related">
@@ -85,9 +99,11 @@ $kabyssen['header'] = <<<EOD
 <br>
 {$navigation['menu']}
 EOD;
-
+$current_url = getCurrentUrl();
 $kabyssen['footer'] = <<<EOD
-<footer><span class='sitefooter'>Copyright (c) Tommy Johansson | <a href='http://validator.w3.org/unicorn/check?ucn_uri=referer&amp;ucn_task=conformance'>Unicorn</a></span></footer>
+<footer><span class='sitefooter'>Copyright (c) Tommy Johansson | <a href='http://validator.w3.org/unicorn/check?ucn_uri=referer&amp;ucn_task=conformance'>Unicorn</a> | 
+<a href='http://validator.w3.org/i18n-checker/check?uri=$current_url'>i18n</a> | 
+  <a href='http://validator.w3.org/checklink?uri=$current_url'>Links</a> | </span></footer>
 EOD;
 
 $kabyssen['byline'] = <<<EOD

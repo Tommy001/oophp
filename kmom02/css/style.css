@@ -119,7 +119,8 @@ nav.related a:active {
     color:#FFF;
 }
 
-
+/* fast position på kmom-menyn */
+nav.vmenu {width:200px; position:fixed;} 
 
 nav.navmenu {
     display: block;
