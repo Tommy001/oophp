@@ -10,6 +10,7 @@ class CDiceGameRound extends CDiceGameBoard {
   public $reset;
   public $save;
   public $allround = 0;
+  public $reach100 = false;
   /**
     * Constructor
     *
@@ -18,6 +19,7 @@ class CDiceGameRound extends CDiceGameBoard {
     $this->faces = $faces;
     $total = 0;
     $roll = false;
+    $reach100 = false;
   }   
  
 
@@ -51,4 +53,12 @@ class CDiceGameRound extends CDiceGameBoard {
     public function GetTotalAllRounds() {
         return $this->allround;
     }
+    
+    public function Reach100() {
+        $reach100 = false;
+        if($this->allround >= 100) {
+            $reach100 = true;
+        }
+        return $reach100;
+    }    
 }    

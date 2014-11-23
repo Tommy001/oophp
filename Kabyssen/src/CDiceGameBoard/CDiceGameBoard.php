@@ -20,13 +20,17 @@ class CDiceGameBoard extends CDice {
    *
    */
     public function GetGameBoard() {
+        $clickable = true;
+        if($this->Reach100()) {$clickable = false;}
         $html = "<div id='dice-container'>";
-        $html .= "<div class='dicegame'><a href='?roll'><ul class='dice'>";
+        $html .= "<div class='dicegame'>";
+        if($clickable){$html .= "<a href='?roll'>";}
+        $html .= "<ul class='dice'>";
         foreach($this->rolls as $val) {
-            $html .= "<li class='dice-$val'></li>";
+            $html .= "<li class='dice-$val'></li></ul>";
         }
-        $html .= "</ul></a></div>";
-        $html .= "<div class='diceround'>
+        if($clickable){$html .= "</a>";}
+        $html .= "</div><div class='diceround'>
         <h2>".$this->total."<br>poäng</h2>
         </div>
         <a href='?save'><div class='dicesave'>
@@ -37,7 +41,12 @@ class CDiceGameBoard extends CDice {
         </div>
         <a href='?init'><div class='diceinit'>
         </div></a>        
-        </div>";
+        ";
+        if($this->Reach100()) {
+            $html .= "<a href='?init'><div class='reach100'>
+        <h3 class='blink'><br>Du nådde 100 på ".$this->roll." kast.</h3>
+        </div></a></div>";
+         }
         return $html;
     }
 

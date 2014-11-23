@@ -1,3 +1,5 @@
+
+
 /**
  * CSS sprite for a dice with six faces.
  *
@@ -84,6 +86,36 @@ ul.dice li.dice-1 { background-position:    0px 0px; }
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
 }
+
+.reach100 {
+    float:left;
+    overflow:hidden;
+    height:100px;
+    width:100px;
+    border:solid 1px;
+    color:red;
+    text-decoration:blink;
+      border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+}
+
+/**
+ * CSS to make something blink.
+ *
+ */
+.blink {
+    display: inline;
+    color: inherit;
+    animation: blink 1s steps(1) infinite;
+    -webkit-animation: blink 1s steps(1) infinite;
+}
+@keyframes blink { 50% { color: transparent; } }
+@-webkit-keyframes blink { 50% { color: transparent; } }
+
+.padding-top {
+    padding-top:5px;
+}    
 
 .diceinit {
     background:url("../img/avbryt.png") no-repeat;

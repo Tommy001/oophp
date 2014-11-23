@@ -25,7 +25,7 @@ if(isset($_SESSION['play100'])) {
 $html = $play100->GetGameBoard(); // visa spelplanen
 $roll = isset($_GET['roll']) ? true : false;
 $save = isset($_GET['save']) ? true : false;
-if ($roll) { // efter klick på Kasta
+if ($roll && !$play100->Reach100()) { // tillåt kast om poängen < 100
     $html = $play100->IfRollDice();
 }
 
@@ -40,7 +40,7 @@ $kabyssen['main'] = <<<EOD
     <p>
         Kasta tärningen några gånger och spara poängen. Om kastet skulle råka bli en etta nollställs alla poäng som inte sparats. Det gäller att komma till 100 på så få kast som möjligt.
     <p>
-        Klicka på tärningen för att kasta, på disketten för att spara och på förbudsskylten för att avbryta.    
+        Klicka på tärningen för att kasta, på disketten för att spara och på förbudsskylten för att börja om från början.    
     </p>    
 </article>
 {$html}
