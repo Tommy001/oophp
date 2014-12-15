@@ -69,11 +69,12 @@ $menu = array(
 $navigation = array('menu' => call_user_func('GenerateMenu', $menu, $class));
 
 
-
-$kabyssen['header'] = <<<EOD
+$kabyssen['above_header'] = <<<EOD
 <nav class="related">
 <a href="../kmom01/me.php">kmom01</a>
 </nav>
+EOD;
+$kabyssen['header'] = <<<EOD
 <a href="me.php"><img src="img/logo.gif" alt="htmlphp logo" width="72" height="70"></a>
 <a style="text-decoration:none" href="me.php"><span class='sitetitle'>OOPHP</span></a>
 <a style="text-decoration:none" href="me.php"><span class='siteslogan'>Min Me-sida i kursen Databaser och Objektorienterad PHP-programmering</span></a>

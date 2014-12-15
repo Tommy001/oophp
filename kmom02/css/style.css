@@ -2,7 +2,7 @@
  * General elements
  */
  /* general */
-html {background: #185F0C;
+html {background: #0066ff;
       overflow-y: scroll;
 }
 
@@ -11,7 +11,7 @@ body {
   margin: 8px auto;
   width: 934px;
   padding: 20px;
-  background: #EBF5EA;
+  background: #e6ffff;
   border: 0px dashed #000000;
   font-family: Helvetica, serif;
   border-radius: 20px;
@@ -27,8 +27,12 @@ h1 {
 
 
 
-html {
-
+.black a:link,
+a:visited,
+a:active,
+a:hover { 
+    color:#000; 
+    text-decoration:none;
 }
 
 
@@ -65,6 +69,9 @@ aside {
 .right {
     float:right;
 }
+.center {
+    text-align:center;
+}
  
 #wrapper {
   margin: 0 auto;
@@ -80,10 +87,14 @@ aside {
   position: relative;
   margin-bottom: 40px;
 }
+#above_header {
+
+  margin-bottom: 0px;
+}
  
 .sitetitle {
   position: absolute;
-  top: 25px;
+  top: 0px;
   left: 130px;
   font-size: 48px;
   color:#000;
@@ -91,7 +102,7 @@ aside {
  
 .siteslogan {
   position: absolute;
-  top: 80px;
+  top: 55px;
   left: 130px;
   font-style: italic;
   color: #666;
@@ -102,10 +113,9 @@ aside {
 nav.related, nav.login {
    padding:0.2em 1em 0.3em 1em;
    color:#fff;
-   background: #185F0C;
+   background: #0066ff;
    margin-bottom:10px;
    width:885px;
-   word-spacing:20px;
 }
 
 nav.related, nav.login a:visited { text-decoration:none;
@@ -116,7 +126,56 @@ nav.related a:visited,
 nav.related a:link,
 nav.related a:active {
     text-decoration:none;
+    text-align:center;
     color:#FFF;
+}
+
+.skugga {background-image: url(../img/movie/skugga_info.gif);}
+
+.orderby a {
+  text-decoration: none;
+  color: black;
+}
+
+.dbtable {
+
+    width:93%;
+
+}
+
+th, td {
+  border:double 1px;
+  text-align:center;
+}  
+  
+
+.dbtable table {
+  width: 100%;
+    
+}
+
+.dbtable .rows {
+  text-align: right;
+  width:100%;
+
+}
+
+.dbtable .pages {
+  text-align: center;
+
+}
+
+.debug {
+  color: #666;
+}
+
+.page a:hover,
+    a:visited,
+    a:link,
+    a:active {
+
+    color:#000;
+
 }
 
 /* fast position på kmom-menyn */
@@ -125,13 +184,12 @@ nav.vmenu {width:200px; position:fixed;}
 nav.navmenu {
     display: block;
     padding: 0.5em 0.5em 0.5em 0.5em;
-    background: #185F0C;
+    background: #0066ff;
     border-bottom: 1px solid #e4f087;
     margin-bottom:10px;
     margin-top:10px;
     width:895px;
     font-size:140%;
-    word-spacing:20px;
     color:#fff;
    
 }
@@ -145,6 +203,7 @@ nav.navmenu a.selected {
 nav.navmenu a:link    {
     color:#fff;
     text-decoration:none;
+    margin-right:15px;
 }
 nav.navmenu a:visited { text-decoration:none;
            color:#FFF;
@@ -159,7 +218,29 @@ nav.navmenu a:active  {  text-decoration:none;
        color:#FFF;
 }
 
- 
+/**
+ * Filmtabell
+ */
+.film_table {border: 1px solid #e6e6e6;
+    margin: 1em;
+    padding: 4px;
+    text-align: center;
+    width:93%;
+}
+
+.film_coltitle {
+    text-align:center;
+    background:#185F0C;
+    color:#FFF;
+}    
+
+.image_h_w {
+    max-width:75px;
+}    
+
+
+
+
 /**
  * Layout for main
  */

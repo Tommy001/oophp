@@ -12,7 +12,7 @@ function destroySession() {
           $params["path"], $params["domain"],
           $params["secure"], $params["httponly"]
       );
-  }
+  }  
   
   // Finally, destroy the session.
   session_destroy();
@@ -27,3 +27,9 @@ function getCurrentUrl() {
   $url .= $_SERVER["SERVER_NAME"] . $serverPort . htmlspecialchars($_SERVER["REQUEST_URI"]);
   return $url;
 }
+
+
+
+
+
+

@@ -13,6 +13,7 @@
 </head>
 <body>
   <div id='wrapper'>
+    <div id='above_header'><?=$above_header?></div>  
     <div id='header'><?=$header?></div>
     <div id='main'><?=$main?></div>
     <div id='footer'><?=$footer?></div>

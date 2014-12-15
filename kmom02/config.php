@@ -61,7 +61,7 @@ session_start();
  */
 $kabyssen['lang']         = 'sv';
 $kabyssen['title_append'] = ' | Kabyssen en webbtemplate';
-$kabyssen['title'] = "Tärningsspel";
+
 $class = 'navmenu';
 $menu = array(
   'callback' => 'modifyNavbar',
@@ -88,11 +88,13 @@ $kmom_meny = '<aside class="right">
   	   </ul>  
   </nav>
 </aside>';
-
-$kabyssen['header'] = <<<EOD
+$kabyssen['above_header'] = <<<EOD
 <nav class="related">
 <a href="../kmom01/me.php">kmom01</a>
+<a href="../kmom02/me.php">kmom02</a>
 </nav>
+EOD;
+$kabyssen['header'] = <<<EOD
 <a href="me.php"><img src="img/logo.gif" alt="htmlphp logo" width="72" height="70"></a>
 <a style="text-decoration:none" href="me.php"><span class='sitetitle'>OOPHP</span></a>
 <a style="text-decoration:none" href="me.php"><span class='siteslogan'>Min Me-sida i kursen Databaser och Objektorienterad PHP-programmering</span></a>
@@ -141,6 +143,3 @@ $kabyssen['google_analytics'] = 'UA-22093351-1'; // Set to null to disable googl
  */
 $kabyssen['stylesheets'] = array('css/style.css');
 $kabyssen['favicon']    = 'favicon.ico';
-
-
-

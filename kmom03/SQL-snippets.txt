@@ -1,0 +1,126 @@
+-- Skapa tabell
+CREATE TABLE Larare
+(
+  akronymLarare CHAR(3) PRIMARY KEY,
+  avdelningLarare CHAR(3),
+  namnLarare CHAR(20),
+  lonLarare INT,
+  foddLarare DATETIME
+);
+
+--Uppdatera värde i tabell
+UPDATE Larare SET kompetensLarare = 7, lonLarare = 25000 WHERE namnLarare = 'Charles';
+
+-- Ta bort tabell
+ALTER TABLE Larare DROP COLUMN kompetensLarare;
+
+-- Ta bort kolumn
+ALTER TABLE Larare DROP COLUMN kompetensLarare;
+
+-- LIMIT
+-- Ta bort rader med begränsning
+DELETE FROM Larare LIMIT 2
+
+-- Lägg till tabeller
+ALTER TABLE Larare ADD COLUMN kompetensLarare INT;
+
+-- Tvinga lower case
+SELECT LCASE(CONCAT(avdelningLarare, ' / ', akronymLarare)) FROM Larare;
+
+-- Beräkna ålder
+SELECT
+  name, 
+  birth, 
+  CURDATE(),
+  TIMESTAMPDIFF(YEAR, birth, CURDATE()) AS age
+FROM Pet;
+
+-- Beräkna ålder II
+SELECT namnLarare AS Lärare, 
+  foddLarare AS 'Född', 
+  CURDATE() AS 'Innevarande år', 
+  TIMESTAMPDIFF(YEAR, foddLarare, CURDATE()) AS 'Ålder' 
+  FROM Larare;
+
+-- Skapa vyn TOMMY
+CREATE VIEW TOMMY AS
+	SELECT namnLarare AS Lärare, 
+	foddLarare AS 'Född', 
+	CURDATE() AS 'Innevarande år', 
+	TIMESTAMPDIFF(YEAR, foddLarare, CURDATE()) AS 'Ålder' 
+	FROM Larare;
+	
+-- Visa vyn TOMMY
+SELECT * FROM TOMMY;
+
+-- Skapa vyn VLarare2
+CREATE VIEW Vlarare2 AS
+	SELECT 
+    akronymLarare AS 'Akronym',
+    avdelningLarare AS 'Avdelning',
+    namnLarare AS 'Lärare',
+	lonLarare AS 'Lön',
+	foddLarare AS 'Född', 
+	TIMESTAMPDIFF(YEAR, foddLarare, CURDATE()) AS 'Ålder' 
+	FROM Larare;
+
+-- Visa vyn Vlarare2 med medelålder per avd
+SELECT round(avg(Ålder),1) AS Medelålder, Avdelning FROM Vlarare2 GROUP BY Avdelning;
+
+-- Skapa tabell med främmande nyckel
+CREATE TABLE KursTillfalle
+(
+  idKursTillfalle INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  Kurstillfalle_kodKurs CHAR(6) NOT NULL,
+  Kurstillfalle_akronymLarare CHAR(3) NOT NULL,
+  lasperiodKurstillfalle INT NOT NULL,
+  FOREIGN KEY (Kurstillfalle_kodKurs) REFERENCES Kurs(kodKurs)
+);
+
+-- Lägg till rader i en tabell
+INSERT INTO Larare VALUES ('MOS', 'APS', 'Mikael',   15000, '1968-03-07');
+
+-- Skapa vy med alla tre tabellerna
+CREATE VIEW BTH AS
+SELECT * FROM Kurstillfalle, Kurs
+WHERE Kurstillfalle_kodKurs = kodKurs;
+
+CREATE VIEW BTH_kurs AS
+SELECT * FROM BTH, VLarare2
+WHERE Kurstillfalle_akronymLarare = Akronym;
+
+SELECT * FROM BTH_kurs
+
+
+-- iNNER JOIN... ON...
+SELECT
+  K.kodKurs AS Kurskod,
+  K.namnKurs AS Kursnamn,
+  Kt.lasperiodKurstillfalle AS Läsperiod,
+  CONCAT(L.namnLarare, ' (', L.akronymLarare, ')') AS Kursansvarig
+FROM Kurstillfalle AS Kt
+  INNER JOIN Kurs AS K
+    ON Kt.Kurstillfalle_kodKurs = K.kodKurs
+  INNER JOIN Larare AS L
+    ON Kt.Kurstillfalle_akronymLarare = L.akronymLarare
+ ORDER BY K.kodKurs;
+
+ -- Ta fram info från vy med LIKE
+ SELECT avg(Lön) AS Medellön, 
+avg(TIMESTAMPDIFF(YEAR, Född, CURDATE())) AS Medelålder 
+FROM BTH_kurs WHERE Kurstillfalle_kodKurs LIKE 'PA%';
+
+-- Subquery - Visa dem som har minsta antal tillfällen som kursansvarig
+SELECT * 
+FROM VVAntalKATillfallen
+WHERE Antal = (SELECT MIN(Antal) FROM VVAntalKATillfallen);
+
+-- OUTER JOIN = visar resultat för rader, även om det inte finns någon rad att länka till => null
+SELECT
+  K.kodKurs AS Kurskod,
+  K.namnKurs AS Kursnamn,
+  Kt.lasperiodKurstillfalle AS Läsperiod
+FROM Kurstillfalle AS Kt
+  RIGHT OUTER JOIN Kurs AS K
+    ON Kt.Kurstillfalle_kodKurs = K.kodKurs
+ORDER BY K.kodKurs;
