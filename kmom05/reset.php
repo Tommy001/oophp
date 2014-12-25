@@ -18,7 +18,7 @@ $acronym = $user->Check_User();
 $kabyssen['above_header'] = $user->User_Status($acronym, $kabyssen['above_header'], $login);
 
 $c = new CContent();
-
+if(isset($acronym)) { 
 // kolla först om anv är inloggad
 $save = isset($_POST['reset']) ? true : false;
 if($save) {
@@ -30,6 +30,10 @@ $html_form = "<article class='me'><form method=post><fieldset>
 <p>OBS! Tabellen kommer att raderas, skapas på nytt och fyllas med ett exempelinnehåll.</p><br>
 <input type=submit name='reset' value='Återställ'>
 </fieldset></form></article>";
+
+} else {
+    $html_form = "Du måste vara inloggad för att återställa databasen.";
+} 
 
 // stuva grejorna i kabyssen
 $kabyssen['title'] = "Återställ databasen";

@@ -136,10 +136,11 @@ $kmom_meny = '<aside class="right">
  * Settings for the database.
  *
  */
+define('DB_PASSWORD', 'b8nRR5(s');
 $kabyssen['database']['dsn'] = 'mysql:host=blu-ray.student.bth.se;dbname=toja14;'; 
 // host=blu-ray.student.bth.se
-$kabyssen['database']['username']       = 'toja14'; //toja14
-$kabyssen['database']['password']       = 'b8nRR5(s'; //b8nRR5(s
+$kabyssen['database']['username']       = 'toja14'; 
+$kabyssen['database']['password']       = DB_PASSWORD; 
 $kabyssen['database']['driver_options'] = array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'");
 
 

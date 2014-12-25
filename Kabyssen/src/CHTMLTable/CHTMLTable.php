@@ -112,7 +112,7 @@ class CHTMLTable extends CMovieSearch {
         FROM 
         (
         $sqlOrig $where $groupby
-        ) AS op_k4_Movie
+        ) AS op_k4_movie
         ";
         $res = $this->db->ExecuteSelectQueryAndFetchAll($sql, $this->params);
         $rows = $res[0]->rows;

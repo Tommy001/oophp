@@ -12,12 +12,17 @@ $kabyssen['stylesheets'][]        = 'css/navbar.css';
 
 // Do it and store it all in variables in the Kabyssen container.
 $kabyssen['title'] = "Min filmdatabas";
-
+$login = true;
 // anslutning databas, objekt för sökfunktioner, formulär och tabell
 $db = new CDatabase($kabyssen['database']);
 $movie = new CMovieSearch($db);
 $chtml = new CHTMLTable($db);
+$user = new CUser();
+// Check if user is authenticated.
+$acronym = $user->Check_User();
 
+// indikera inloggningsstatus uppe till höger ovanför headern 
+$kabyssen['above_header'] = $user->User_Status($acronym, $kabyssen['above_header'], $login);
 // Ta emot parametrar
 $title    = isset($_GET['title']) ? $_GET['title'] : null;
 $genre    = isset($_GET['genre']) ? $_GET['genre'] : null;

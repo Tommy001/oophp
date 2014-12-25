@@ -52,7 +52,7 @@ class CUser {
         <label>Användarnamn</label><br>
         <input type='text' name='acronym'><br><br>
         <label>Lösenord</label><br>
-        <input type='text' name='password'><br><br>
+        <input type='password' name='password'><br><br>
         <input type='submit' name='submit' value='Logga in'>
         <p><a href='movie_logout.php'>Till utloggningen</a></p>
         </fieldset></form></article>";
