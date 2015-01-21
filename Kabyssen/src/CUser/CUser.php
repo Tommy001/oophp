@@ -35,15 +35,23 @@ class CUser {
      */
     public function User_Status($acronym, $above_header, $login) {
         if($acronym) {
-            $above_header = substr_replace($above_header, "<div class='right'>Du är inloggad som: $acronym ({$_SESSION['user']->name})</div></nav>", -6);
+            $above_header = substr_replace($above_header, "<div class='right button'><form method='post' action='' name='logout'>Du är inloggad som $acronym ({$_SESSION['user']->name})
+                <input type='submit' name='logout' value='Logga ut'></form></div></nav>", -6);
             } else if($login) {
-            $above_header = substr_replace($above_header, "<div class='right'>Du har inte loggat in</div></nav>", -6);
+            $above_header = substr_replace($above_header, "<div class='right button'>
+                <form method='post' action='movie_login.php' name='login'>
+                <input placeholder='Användarnamn' type='text' name='acronym'>
+                <input placeholder='Lösenord' type='password' name='password'>
+                <input type='submit' name='submit' value='Logga in'></form></div></nav>", -6);
             } else {
-            $above_header = substr_replace($above_header, "<div class='right'>Du har loggat ut</div></nav>", -6);
+            $above_header = substr_replace($above_header, "<div class='right button'><form method='post' action='movie_login.php' name='login'>Du har loggat ut
+                <input type='text' name='acronym'>
+                <input type='password' name='password'>
+                <input type='submit' name='submit' value='Logga in'></form></div></nav>", -6);
             }
         return $above_header; 
     }    
- 
+
         
     public function Get_Login_Form() {
         $html = "<article class='me'><form method='post' name='login'><fieldset>

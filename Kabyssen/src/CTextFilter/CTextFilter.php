@@ -31,6 +31,7 @@ class CTextFIlter {
                 );
  
   // Make an array of the comma separated string $filter
+            $filter = rtrim($filter, ','); // ta bort kommatecken på slutet
             $filters = preg_replace('/\s/', '', explode(',', $filter));
  
   // For each filter, call its function with the $text as parameter.
@@ -50,10 +51,12 @@ class CTextFIlter {
     *
     * @param string text The text to be converted.
     * @returns string the formatted text.
+    * p tag added combined with CSS to add indentation
     */
     public function bbcode2html($text) {
         $search = array(
             '/\[b\](.*?)\[\/b\]/is',
+            '/\[big\](.*?)\[\/big\]/is',
             '/\[i\](.*?)\[\/i\]/is',
             '/\[u\](.*?)\[\/u\]/is',
             '/\[img\](https?.*?)\[\/img\]/is',
@@ -62,6 +65,7 @@ class CTextFIlter {
         );   
         $replace = array(
             '<strong>$1</strong>',
+            '<strong style=\'font-size:1.3em\'>$1</strong>',
             '<em>$1</em>',
             '<u>$1</u>',
             '<img src="$1" />',

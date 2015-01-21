@@ -46,7 +46,7 @@ class CMovieSearch {
         $query = array_merge($query, $options);
  
         // Return the modified querystring
-        return $prepend . http_build_query($query);
+        return $prepend . http_build_query($query, '', '&amp;');
     }
 
     /**
@@ -59,10 +59,10 @@ class CMovieSearch {
   $nav = "Träffar per sida: ";
   foreach($hits AS $val) {
     if($current == $val) {
-      $nav .= "$val ";
+      $nav .= "<span class='pagenum_current'>$val </span>";
     }
     else {
-      $nav .= "<a href='" . $this->getQueryString(array('hits' => $val)) . "'>$val</a> ";
+      $nav .= "<a href='" . $this->getQueryString(array('hits' => $val)) . "' class='pagenum'>$val</a> ";
     }
   }  
   return $nav;
@@ -78,20 +78,20 @@ class CMovieSearch {
     * @return string as a link to this page.
     */
     function getPageNavigation($hits, $page, $max, $min=1) {
-  $nav  = ($page != $min) ? "<a href='" . $this->getQueryString(array('page' => $min)) . "'>&lt;&lt;</a> " : '&lt;&lt; ';
-  $nav .= ($page > $min) ? "<a href='" . $this->getQueryString(array('page' => ($page > $min ? $page - 1 : $min) )) . "'>&lt;</a> " : '&lt; ';
+  $nav  = ($page != $min) ? "<a href='" . $this->getQueryString(array('page' => $min)) . "' class='pagenum'>&lt;&lt;</a> " : '<span class=\'pagenum\'>&lt;&lt; </span>';
+  $nav .= ($page > $min) ? "<a href='" . $this->getQueryString(array('page' => ($page > $min ? $page - 1 : $min) )) . "' class='pagenum'>&lt;</a> " : '<span class=\'pagenum\'>&lt; </span>';
 
   for($i=$min; $i<=$max; $i++) {
     if($page == $i) {
-      $nav .= "$i ";
+      $nav .= "<span class='pagenum_current'>$i </span>";
     }
     else {
-      $nav .= "<a href='" . $this->getQueryString(array('page' => $i)) . "'>$i</a> ";
+      $nav .= "<a href='" . $this->getQueryString(array('page' => $i)) . "' class='pagenum'>$i</a> ";
     }
   }
 
-  $nav .= ($page < $max) ? "<a href='" . $this->getQueryString(array('page' => ($page < $max ? $page + 1 : $max) )) . "'>&gt;</a> " : '&gt; ';
-  $nav .= ($page != $max) ? "<a href='" . $this->getQueryString(array('page' => $max)) . "'>&gt;&gt;</a> " : '&gt;&gt; ';
+  $nav .= ($page < $max) ? "<a href='" . $this->getQueryString(array('page' => ($page < $max ? $page + 1 : $max) )) . "' class='pagenum'>&gt;</a> " : '<span class=\'pagenum\'>&gt; </span>';
+  $nav .= ($page != $max) ? "<a href='" . $this->getQueryString(array('page' => $max)) . "' class='pagenum'>&gt;&gt;</a> " : '<span class=\'pagenum\'>&gt;&gt; </span>';
   return $nav;
 }
 }    

@@ -60,11 +60,43 @@ session_start();
  *
  */
 $kabyssen['lang']         = 'sv';
-$kabyssen['title_append'] = ' | Kabyssen en webbtemplate';
+$kabyssen['title_append'] = ' | Vinyl Records';
 
 /**
  * Define the menu as an array
  */
+
+$admin = isset($_SESSION['vinyl_user']) ? array(
+      'text'  =>'Administration',   
+      'url'   =>'',  
+      'title' => 'Administration', 
+            // Here we add the submenu, with some menu items, as part of a existing menu item
+      'submenu' => array(
+ 
+        'items' => array(
+          // This is a menu item of the submenu
+          'item 1'  => array(
+            'text'  => 'Webbplats',   
+            'url'   => 'admin_webb.php',  
+            'title' => 'Administrera nyhetsblogg och webbsidor'
+          ),
+ 
+          // This is a menu item of the submenu
+          'item 2'  => array(
+            'text'  => 'Skivor',   
+            'url'   => 'admin_musik.php',  
+            'title' => 'Administrera skivdatabasen'
+          ),
+          // This is a menu item of the submenu
+          'item 3'  => array(
+            'text'  => 'Användare',   
+            'url'   => 'admin_user.php',  
+            'title' => 'Administrera användare'
+          ),          
+        ),
+      ),
+    )  : null;
+ 
 $menu = array(
   // Use for styling the menu
   'class' => 'navbar',
@@ -72,30 +104,33 @@ $menu = array(
   // Here comes the menu strcture
   'items' => array(
     // This is a menu item
-    'me'  => array(
-      'text'  =>'Me',   
-      'url'   =>'me.php',  
-      'title' => 'Min me-sida'
+    'start'  => array(
+      'text'  =>'Start',   
+      'url'   =>'start.php',  
+      'title' => 'Startsidan'
     ),
     // This is a menu item
-    'report'  => array(
-      'text'  =>'Redovisning',   
-      'url'   =>'report.php',  
-      'title' => 'Min redovisningssida'
+    'musik'  => array(
+      'text'  =>'Musik',   
+      'url'   =>'musik.php',  
+      'title' => 'Vinylsortiment'
     ),  
     
     // This is a menu item
-    'gallery'  => array(
-      'text'  =>'Movie',   
-      'url'   =>'komplett.php',  
-      'title' => 'Titta på galleriet'
+    'blog'  => array(
+      'text'  =>'Blogg',   
+      'url'   =>'blog.php',  
+      'title' => 'Läs vår blogg'
     ),  
  
     // This is a menu item
-    'source'  => array(
-      'text'  =>'Källkod',   
-      'url'   =>'view_source.php',  
-      'title' => 'Titta på källkoden', 
+    'admin'  => $admin,
+    
+        // This is a menu item
+    'om'  => array(
+      'text'  =>'Om oss',   
+      'url'   =>'om.php',  
+      'title' => 'Om Vinyl Records', 
       ),
     ),
  
@@ -106,6 +141,8 @@ $menu = array(
     }
   }
 );
+
+
 
 
 $navigation = get_navbar($menu);
@@ -129,40 +166,37 @@ $kmom_meny = '<aside class="right">
  * Settings for the database.
  *
  */
-define('DB_PASSWORD', ''); //b8nRR5(s
-$kabyssen['database']['dsn'] = 'mysql:host=localhost;dbname=toja14;'; //blu-ray.student.bth.se
+define('DB_PASSWORD', 'b8nRR5(s'); // 
+$kabyssen['database']['dsn'] = 'mysql:host=blu-ray.student.bth.se;dbname=toja14;'; //blu-ray.student.bth.se
 // host=blu-ray.student.bth.se
-$kabyssen['database']['username']       = 'root'; 
+$kabyssen['database']['username']       = 'toja14'; 
 $kabyssen['database']['password']       = DB_PASSWORD; 
 $kabyssen['database']['driver_options'] = array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'");
 
 
 $kabyssen['above_header'] = <<<EOD
 <nav class="related">
-<a href="../kmom01/me.php">kmom01</a>
-<a href="../kmom02/me.php">kmom02</a>
-<a href="../kmom03/me.php">kmom03</a>
-<a href="../kmom04/me.php">kmom04</a>
+<br>
 </nav>
 EOD;
 $kabyssen['header'] = <<<EOD
-<a href="me.php"><img src="img/logo.gif" alt="htmlphp logo" width="72" height="70"></a>
-<a style="text-decoration:none" href="me.php"><span class='sitetitle'>OOPHP</span></a>
-<a style="text-decoration:none" href="me.php"><span class='siteslogan'>Min Me-sida i kursen Databaser och Objektorienterad PHP-programmering</span></a>
+<a href="start.php"><img src="img.php?src=vinyl_logga.png&amp;width=110" alt="Vinyl Records Logo"></a>
+<a style="text-decoration:none" href="start.php"><span class='sitetitle'>Vinyl Records</span></a>
+<a style="text-decoration:none" href="start.php"><span class='siteslogan'>Din vinylbutik på nätet</span></a>
 <br>
-{$navigation}
+<div class='menyrad'>{$navigation}</div>
 EOD;
 $current_url = getCurrentUrl();
 $kabyssen['footer'] = <<<EOD
-<footer><span class='sitefooter'>Copyright (c) Tommy Johansson | <a href='http://validator.w3.org/unicorn/check?ucn_uri=referer&amp;ucn_task=conformance'>Unicorn</a> | 
+<footer><span class='sitefooter'>Copyright (c) Vinyl Records | <a href='http://validator.w3.org/unicorn/check?ucn_uri=referer&amp;ucn_task=conformance'>Unicorn</a> | 
 <a href='http://validator.w3.org/i18n-checker/check?uri=$current_url'>i18n</a> | 
-  <a href='http://validator.w3.org/checklink?uri=$current_url'>Links</a> | </span></footer>
+  <a href='http://validator.w3.org/checklink?uri=$current_url'>Links</a> | <a href='view_source.php'>Källkod</a></span></footer>
 EOD;
 
 $kabyssen['byline'] = <<<EOD
 <footer class="byline">
 	<figure class="right top bylinebild"><img src="img/Tommy_nyklippt.jpg" alt="Bylinebild på Tommy" height="50"></figure>
-		<p>Tommy är språkkonsult med fordonsindustrin som största uppdragsgivare. Sedan 1991 har han jobbat i egen regi och har genom åren tagit emot uppdrag från många olika kunder. De sista åren har dock konsultandet blivit mer specialiserat och framåt är siktet inställt på en kombination av webbutveckling och språktjänster.</p>
+		<p>Den här webbplatsen är skapad som examensprojekt i kursen “Databaser och objektorienterad programmering i PHP”. Jag som har gjort den heter Tommy Johansson och jag jobbar till vardags som konsult med teknisk översättning som specialitet. Framåt är dock siktet inställt på en kombination av webbutveckling och språktjänster.</p>
 </footer>
 EOD;
 
@@ -193,4 +227,4 @@ $kabyssen['google_analytics'] = 'UA-22093351-1'; // Set to null to disable googl
  *
  */
 $kabyssen['stylesheets'] = array('css/style.css');
-$kabyssen['favicon']    = 'favicon.ico';
+$kabyssen['favicon']    = 'favicon.png';

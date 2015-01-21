@@ -1,51 +1,123 @@
-.navbar {}
+/* menystil */
+nav.navbar {width:100%;}
  
-.navbar ul {
-  list-style: none; 
-  margin: 0; 
-  padding: 0;
+.navbar > ul {
+    display: block;
+    list-style:none;
+    font-size:140%; 
+   /* color:#17230D; */
+    
+
 }
- 
+
+.menyrad {
+    position:relative;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    padding: 0.5em 0.5em 0.5em 0.5em;
+    background: #9dba86; /* Old browsers */
+    margin-bottom:10px;
+    margin-top:10px;
+    width:895px;
+    height:28px;
+}
+
 .navbar li {
   display: inline;
   position: relative; /* New - to place the drop-down menu correctly */
 }
  
-.navbar a {
-  white-space: nowrap; /* New - to make the drop-down menu items stay on one row */
+nav.navbar ul > li > ul > li > a {
+  display: inline;
+  position: relative; /* New - to place the drop-down menu correctly */
+  font-size:80%;
+
+}
+ 
+nav.navbar a {
+  /* white-space: nowrap;  New - to make the drop-down menu items stay on one row */
+  width:100%;
   text-decoration: none;
-  border: 1px solid transparent; 
-  color: #00f
+ border: 1px solid transparent; 
+  /* color: #17230D; */
+
+
+}
+
+nav.navbar .selected {
+  /* white-space: nowrap; New - to make the drop-down menu items stay on one row */
+   /* padding:5px; */
+    background: #858585;
+   /* border: 2px solid #858585; */ 
+    color:#FFF !important;
+    text-decoration:none;
+}
+
+.selected-parent > a {color:#fff !important}
+
+nav.navbar .selected-parent,
+nav.navbar .selected a {
+  /* white-space: nowrap;  New - to make the drop-down menu items stay on one row */
+    background: #858585;
+  /*  border: 2px solid #858585; */ 
+    color:#fff !important;
+    text-decoration:none;
+    padding:5px; 
+
 }
  
-.navbar a:hover {
-  color: #666; 
-  border-color: #666 transparent;
+nav.navbar a:hover {
+
+    padding:5px;
+ /*   border: 2px solid #656565; */ 
+    color:#FFF !important;
+ /*  font-size:100%; */
+ /*  padding-bottom:70px; */
 }
  
-.navbar li a.selected-parent, /* New - to style the selected parent */
+nav.navbar ul li .selected-parent, /* New - to style the selected parent */
 .navbar a.selected {
-  color: #222; 
-  border-color: #222 transparent;
+    color: #fff !important; 
+    background: #858585;
+    padding:5px;
+    border: 2px solid #656565; 
+
 }
  
  
 /* New - to style the submenu, start by hiding it using absolute positioning */
-.navbar ul ul {
+nav.navbar ul ul {
   background-color: #fff; 
   padding: 8px; 
   position: absolute; 
   left: -9999px; 
   z-index: 2;
+
 }
  
 /* Display the submenu when hovering the list element, absolute positioning */
-.navbar li:hover ul {
-  left: 0;
+nav.navbar li:hover ul {
+    background: #858585;
+    padding:5px;
+   /* border: 2px solid #656565; */ 
+    color:#FFF !important;
+    left:0px;
+    width:110px;
+
+
 }
  
 /* New - style items of the submenu when hovering and selected */
-.navbar li li a:hover,
-.navbar li li a.selected {
-  border-color: transparent;
+nav.navbar ul > li > a:hover,
+nav.navbar li li a:hover,
+nav.navbar li li a.selected {
+    background: transparent;
+    /* padding:5px; */
+    /* border: 2px solid #656565; */ 
+    color:#FFF !important;
+
+
+
+  
 }

@@ -119,6 +119,13 @@ class CHTMLTable extends CMovieSearch {
         $max = ceil($rows / $this->hits);  
         return array($max, $rows);
     } 
+
+    public function GetHTML_SearchForm($title) {
+        $html = "<li class='right'><form>
+            <label>Sök titel: <input type='search' name='title' value='{$title}'/></li>
+        </form></ul>";
+        return $html;
+    }
     
     public function GetHTML_form($title, $genre, $genres, $hits, $year1, $year2) {
         $html = "<article class='me'><form><fieldset>

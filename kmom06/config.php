@@ -143,6 +143,8 @@ $kabyssen['above_header'] = <<<EOD
 <a href="../kmom02/me.php">kmom02</a>
 <a href="../kmom03/me.php">kmom03</a>
 <a href="../kmom04/me.php">kmom04</a>
+<a href="../kmom05/me.php">kmom05</a>
+kmom06
 </nav>
 EOD;
 $kabyssen['header'] = <<<EOD

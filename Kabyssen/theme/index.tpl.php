@@ -8,7 +8,7 @@
 <?php foreach($stylesheets as $val): ?>
 <link rel='stylesheet' type='text/css' href='<?=$val?>'/>
 <?php endforeach; ?>
-<link rel='shortcut icon' href='favicon.ico'/>
+
 <script src='<?=$modernizr?>'></script>
 </head>
 <body>

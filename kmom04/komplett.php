@@ -7,8 +7,6 @@
 include(__DIR__.'/config.php'); 
 
 // Define what to include to make the plugin to work
-$kabyssen['stylesheets'][]        = 'css/style.css';
-$kabyssen['stylesheets'][]        = 'css/navbar.css';
 
 // Do it and store it all in variables in the Kabyssen container.
 $kabyssen['title'] = "Min filmdatabas";

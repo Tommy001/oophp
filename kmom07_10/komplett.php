@@ -8,7 +8,7 @@ include(__DIR__.'/config.php');
 
 // Define what to include to make the plugin to work
 $kabyssen['stylesheets'][]        = 'css/style.css';
-// $kabyssen['stylesheets'][]        = 'css/navbar.css';
+$kabyssen['stylesheets'][]        = 'css/typography.css';
 
 // Do it and store it all in variables in the Kabyssen container.
 $kabyssen['title'] = "Min filmdatabas";
@@ -17,9 +17,10 @@ $login = true;
 $db = new CDatabase($kabyssen['database']);
 $movie = new CMovieSearch($db);
 $chtml = new CHTMLTable($db);
-$user = new CUser();
+$user = new CVinylUser();
 // Check if user is authenticated.
 $acronym = $user->Check_User();
+$kabyssen['header'] = $user->GetMemberLink($acronym, $kabyssen['header']);
 
 // indikera inloggningsstatus uppe till höger ovanför headern 
 $kabyssen['above_header'] = $user->User_Status($acronym, $kabyssen['above_header'], $login);
@@ -53,8 +54,12 @@ $html_form = $chtml->GetHTML_form($title, $genre, $genres, $hits, $year1, $year2
 
 $html_table = $chtml->GetHTML_table($rows, $hitsPerPage, $tr, $navigatePage); 
 
+$html_SearchForm = $chtml->GetHTML_SearchForm($title);
+
+$kabyssen['header'] = substr_replace($kabyssen['header'], $html_SearchForm, -13);
+// dump($kabyssen['header']);
+// exit;
 $kabyssen['main'] = <<<EOD
-{$html_form}
 {$html_table}
 EOD;
 

@@ -348,7 +348,7 @@ EOD;
             }
             $cropX = round(($this->width - $this->cropWidth) / 2);  
             $cropY = round(($this->height - $this->cropHeight) / 2);    
-            $imageResized = imagecreatetruecolor($this->newWidth, $this->newHeight);
+            $imageResized = $this->createImageKeepTransparency($this->newWidth, $this->newHeight);
             imagecopyresampled($imageResized, $image, 0, 0, $cropX, $cropY, $this->newWidth, $this->newHeight, $this->cropWidth, $this->cropHeight);
             $image = $imageResized;
             $this->width = $this->newWidth;
@@ -358,7 +358,7 @@ EOD;
             if($this->verbose) {
                 $this->verbose("Resizing, new height and/or width."); 
             }
-            $imageResized = $this->createImageKeepTransparency();
+            $imageResized = $this->createImageKeepTransparency($this->newWidth, $this->newHeight);
             imagecopyresampled($imageResized, $image, 0, 0, 0, 0, $this->newWidth, $this->newHeight, $this->width, $this->height);
             $image  = $imageResized;
             $this->width  = $this->newWidth;
@@ -373,8 +373,8 @@ EOD;
     * @param resource $image the image to apply this filter on.
     * @return resource $image as the processed image.
     */
-    public function createImageKeepTransparency() {
-        $img = imagecreatetruecolor($this->width, $this->height);
+    public function createImageKeepTransparency($width, $height) {
+        $img = imagecreatetruecolor($width, $height);
         imagealphablending($img, false);
         imagesavealpha($img, true);  
         return $img;

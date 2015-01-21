@@ -1,0 +1,23 @@
+/**
+ * General elements
+ */
+ /* general */
+html {background-image: url(../img/retro_90.jpg);
+    
+      overflow-y: scroll;
+}
+
+body {
+  font-size:90%;
+  margin: 8px auto;
+  width: 934px;
+  min-height:800px;
+  padding: 20px;
+  color:#0F160A;
+  background: rgba(78, 129, 37, 0.95);
+  border: 0px dashed #000000;
+  font-family: Helvetica, serif;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+}
